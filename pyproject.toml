@@ -1,0 +1,23 @@
+[project]
+name = "fastbooka"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Darshan Marathe",email = "darshanmarathe@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.3.8"
+
+
+[tool.poetry.dependencies]
+fastapi = "^0.116.1"
+uvicorn = "^0.35.0"
+black = "^25.1.0"
