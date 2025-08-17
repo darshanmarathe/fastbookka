@@ -1,0 +1,44 @@
+GET http://127.0.0.1:8000
+###
+GET   http://127.0.0.1:8000/books/
+###
+
+GET   http://127.0.0.1:8000/books/1
+###
+
+
+POST   http://127.0.0.1:8000/books/ HTTP/1.1
+content-type: application/json
+
+{
+  "id": 1,
+  "title": "The Agile Author's Guide",
+  "imdb_id": "tt1234567",
+  "description": "A comprehensive guide to writing books using Agile methodologies.",
+  "finalPrice": 19.99,
+  "prev_book_id": 0,
+  "auther_id": 1,
+  "status": 1,
+  "published_date": "2025-08-16T00:00:00",
+  "chapters": []
+}
+
+###
+
+GET   http://127.0.0.1:8000/books/1/chapters
+
+###
+
+POST  http://127.0.0.1:8000/books/1/chapters HTTP/1.1
+content-type: application/json
+
+{
+  "id" : 1,
+  "book_id": 1,
+  "chapter_title": "Introduction to Agile Writing",
+  "content": "This chapter explains how Agile methodologies apply to book writing...",
+  "content_type": "Markdown",
+  "chapter_price": 4.99,
+  "publishDate": "2025-08-16T14:30:00",
+  "status": "Draft"
+}
