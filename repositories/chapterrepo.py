@@ -85,6 +85,27 @@ class ChapterRepository:
             for row in rows
         ]
 
+    def get_chapters_by_book_published(self, book_id: int) -> List[Chapter]:
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT * FROM chapters WHERE book_id = ? AND status = ?",
+            (book_id, ChapterStatus.Published.value),
+        )
+        rows = cursor.fetchall()
+        return [
+            Chapter(
+                id=row[0],
+                book_id=row[1],
+                chapter_title=row[2],
+                content=row[3],
+                content_type=ContentType(row[4]),
+                chapter_price=row[5],
+                publishDate=row[6],
+                status=ChapterStatus(row[7]),
+            )
+            for row in rows
+        ]
+
     def update_chapter(self, chapter_id: int, chapter: Chapter) -> bool:
         cursor = self.conn.cursor()
         cursor.execute(

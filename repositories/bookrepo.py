@@ -58,7 +58,7 @@ class BookRepository:
         cursor.execute("SELECT * FROM books WHERE id = ?", (book_id,))
         row = cursor.fetchone()
         if row:
-            return Book(
+            book =  Book(
                 id=row[0],
                 title=row[1],
                 imdb_id=row[2],
@@ -69,6 +69,7 @@ class BookRepository:
                 status=row[7],
                 published_date=row[8],
             )
+            return book
         return None
 
     def get_all_books(self) -> List[Book]:

@@ -42,3 +42,52 @@ content-type: application/json
   "publishDate": "2025-08-16T14:30:00",
   "status": "Draft"
 }
+
+###
+
+POST  http://127.0.0.1:8000/books/1/chapters HTTP/1.1
+content-type: application/json
+
+{
+  "id": 2,
+  "book_id": 1,
+  "chapter_title": "Advanced Markdown Techniques",
+  "content": "## Heading\n\n* List item 1\n* List item 2\n\n`code snippet`",
+  "content_type": "Markdown",
+  "chapter_price": 2.99,
+  "publishDate": "2025-02-15T10:30:00",
+  "status": "Published"
+}
+
+###
+
+POST  http://127.0.0.1:8000/books/1/chapters HTTP/1.1
+content-type: application/json
+
+{
+  "id": 3,
+  "book_id": 1,
+  "chapter_title": "HTML Formatting Guide",
+  "content": "<h1>HTML Content</h1><p>This chapter shows <strong>HTML formatting</strong> examples.</p>",
+  "content_type": "Text",
+  "chapter_price": 1.50,
+  "publishDate": "2024-12-01T15:45:00",
+  "status": "Draft"
+}
+
+
+###
+
+PUT  http://127.0.0.1:8000/books/1/chapters/1 HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "book_id": 1,
+    "chapter_title": "Introduction to Agile Writing",
+    "content": "This chapter explains how Agile methodologies apply to book writing...",
+    "content_type": "HTML",
+    "chapter_price": 4.99,
+    "publishDate": "2025-08-16T14:30:00",
+  "status": "Published"
+}

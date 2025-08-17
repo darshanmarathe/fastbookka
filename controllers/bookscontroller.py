@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, status
 from typing import List
 from models.books import Book
 from repositories.bookrepo import BookRepository
+from repositories.chapterrepo import ChapterRepository
 from utils.console import console
 
 
@@ -11,6 +12,7 @@ class BooksController:
         self.router = APIRouter(prefix="/books", tags=["books"])
         self.setup_routes()
         self.booksRepo = BookRepository()
+        self.chaptersRepo = ChapterRepository();
         self.console = console()
 
     def setup_routes(self):
@@ -29,6 +31,7 @@ class BooksController:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND, detail="Book not found"
             )
+        book.chapters = self.chaptersRepo.get_chapters_by_book_published(book.id)
         return book
 
     def store(self, book: Book) -> Book:
