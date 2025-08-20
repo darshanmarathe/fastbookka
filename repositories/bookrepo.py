@@ -58,7 +58,7 @@ class BookRepository:
         cursor.execute("SELECT * FROM books WHERE id = ?", (book_id,))
         row = cursor.fetchone()
         if row:
-            book =  Book(
+            book = Book(
                 id=row[0],
                 title=row[1],
                 imdb_id=row[2],

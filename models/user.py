@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -7,8 +8,18 @@ class User(BaseModel):
 
     id: int
     username: str
-    email: str
-    dob: datetime
+    email: Optional[str] = None
+    dob: Optional[datetime] = None
     password: str
-    createdAt: datetime
-    lastLoggedin: datetime
+    createdAt: Optional[datetime] = None
+    lastLoggedin: Optional[datetime] = None
+
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+class UserChangePassword(BaseModel):
+    username: str
+    oldPassword: str
+    newPassword: str

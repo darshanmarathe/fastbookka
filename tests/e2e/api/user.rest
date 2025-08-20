@@ -1,0 +1,38 @@
+GET  http://127.0.0.1:8000
+###
+GET   http://127.0.0.1:8000/users/
+###
+GET   http://127.0.0.1:8000/users/1
+###
+POST  http://127.0.0.1:8000/users/  HTTP/1.1
+content-type: application/json
+
+{
+  "id": 0,
+  "username": "johndoe",
+  "email": "johndoe@example.com",
+  "dob": "1990-05-15T00:00:00",
+  "password": "Tomcat@1999"
+}
+
+###
+
+POST  http://127.0.0.1:8000/users/login/
+content-type: application/json
+
+{   
+    "username": "johndoe",
+    "password": "Tomcat@1999"
+}
+###
+PUT   http://127.0.0.1:8000/users/1/password
+content-type: application/json
+
+{
+    "oldPassword": "securePassword123!",
+    "newPassword": "newSecurePassword456!"
+}
+###
+PUT   http://127.0.0.1:8000/users/1
+###
+DELETE http://127.0.0.1:8000/users/1

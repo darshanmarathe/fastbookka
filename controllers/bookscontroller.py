@@ -12,7 +12,7 @@ class BooksController:
         self.router = APIRouter(prefix="/books", tags=["books"])
         self.setup_routes()
         self.booksRepo = BookRepository()
-        self.chaptersRepo = ChapterRepository();
+        self.chaptersRepo = ChapterRepository()
         self.console = console()
 
     def setup_routes(self):
